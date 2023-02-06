@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<link href="/index.css" rel="stylesheet"><link href="/layout.css" rel="stylesheet"></head>
+
+<body id="user-body">
+    <div class="container">
+
+        <header>
+            <span onclick="window.location.href = 'index.html'"><img src="images/VINEAT_Logo.png" alt=""></span>
+            <nav>
+                <ul>
+                    <li id="greet-wrapper"></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="auth.html" id="login">Login</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id='section' class="activate-cart-wrapper">
+            <aside>
+                <p>
+
+                </p>
+                <button id="order-online" class="active">Order Online</button>
+                <button id="reservation">Reserve Table</button>
+                <button id="view-reservations">Reservations</button>
+
+                <!-- <button id=""></button> -->
+            </aside>
+            <main id="cart-wrapper" class="active">
+                <button id="cart" onclick="checkOut()">Cart (<span class="number-of-items">0</span>)
+                    <div class="checkout" id="checkout">
+                        <!-- <ul>
+                            <li>
+                                <span class="item-title">
+                                    TITLE
+                                </span>
+                                <span class="item-price">
+                                    price
+                                </span>
+                                <br>
+                                <input class="item-quantity" type="number" value="quantity" min="0">
+
+                                <input type="button" value="DELETe" class="item-delete">
+                                </input>
+                            </li>
+                            <hr />
+                        </ul> 
+                        <input id="checkout__button" type="button" value="Checkout" />-->
+                        <!-- <a type="button" href="#">Checkout</a> -->
+                    </div>
+                </button>
+                <!-- <div class="item-wrapper">
+            <label class="item-name">Pizza</label>
+            <button class="add-to-cart">Add to cart</button>
+            <img src="https://media.istockphoto.com/photos/tasty-pepperoni-pizza-and-cooking-ingredients-tomatoes-basil-on-black-picture-id1083487948?k=6&m=1083487948&s=612x612&w=0&h=lK-mtDHXA4aQecZlU-KJuAlN9Yjgn3vmV2zz5MMN7e4="
+                alt="">
+
+        </div>
+        <div class="item-wrapper">
+            <label class="item-name">Pizza</label>
+            <button class="add-to-cart">Add to cart</button>
+            <img src="https://media.istockphoto.com/photos/tasty-pepperoni-pizza-and-cooking-ingredients-tomatoes-basil-on-black-picture-id1083487948?k=6&m=1083487948&s=612x612&w=0&h=lK-mtDHXA4aQecZlU-KJuAlN9Yjgn3vmV2zz5MMN7e4="
+                alt=""> 
+
+    </div>-->
+            </main>
+
+            <main id="reservation-wrapper" class="inactive">
+                <div class="admin-menu" style="display: none;">
+                    <div>
+                        <div>
+                            <label>Width (px)</label>
+                            <input type="number" id="width" class="form-control" value="302" />
+                        </div>
+                        <div>
+                            <label>Height (px)</label>
+                            <input type="number" id="height" class="form-control" value="812" />
+                        </div>
+                        <div>
+                            <label>&nbsp;</label>
+                            <br />
+                            <button id="save">Save</button>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="rectangle">+ &#9647; Table</button>
+                        <button class="circle">+ &#9711; Table</button>
+                        <button class="triangle">+ &#9651; Table</button>
+                        <button class="chair">+ Chair</button>
+                        <button class="bar">+ Bar</button>
+                        <button class="wall">+ Wall</button>
+                        <button class="remove">Remove</button>
+                        <button class="customer-mode">Customer mode</button>
+                    </div>
+                </div>
+
+                <div class="customer-menu">
+                    <div class="btn-group">
+                        <input class="reservation-date" type="date" required>
+                        <!-- <input class="reservation-time" type="time" step="300" required> -->
+                        <select name="time" class="reservation-time" required>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                        </select>
+
+
+
+
+
+                        <button class="check-availability">Check availablity</button>
+                        <button class="submit">Submit reservation</button>
+                        <!-- <button class="btn btn-warning admin-mode">Admin mode</button> -->
+                    </div>
+                    <br />
+                    <br />
+
+                </div>
+                <canvas id="canvas" width="302" height="812"></canvas>
+            </main>
+
+            <main id="view-reservations-wrapper" class="inactive">
+
+
+            </main>
+        </section>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+    <!-- <script src="../app/index.js"></script> -->
+<script src="/index.bundle.js"></script><script src="/auth.bundle.js"></script><script src="/layout.bundle.js"></script><script src="/user.bundle.js"></script></body>
+
+</html>

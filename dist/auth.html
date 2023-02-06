@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link href="/index.css" rel="stylesheet"></head>
+
+<body id="auth-body">
+    <header>
+        <span onclick="window.location.href = 'index.html'"><img src="images/VINEAT_Logo.png" alt=""></span>
+        <nav>
+            <ul>
+                <li id="greet-wrapper"></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="auth.html" id="login">Login</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- <div id="sign-up-container">
+            <h2>SIGNUP</h2>
+            <form action="" id="sign-up-form">
+                <label for="sign-up-username">Username</label>
+                <br />
+
+                <input
+                    type="text"
+                    id="sign-up-username"
+                    placeholder="Enter Username"
+                    required
+                />
+
+                <br />
+                <label for="sign-up-email">Email Address</label>
+                <br />
+
+                <input
+                    type="email"
+                    id="sign-up-email"
+                    placeholder="Enter email address"
+                    required
+                />
+
+                <br />
+                <label for="sign-up-password">Choose password</label>
+                <br />
+
+                <input
+                    type="password"
+                    id="sign-up-password"
+                    placeholder="Choose your password"
+                    minlength="6"
+                    required
+                />
+                <br />
+                <br />
+
+                <button class="submit-btn">
+                    Signup <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+        <div id="log-in-container">
+            <h2>LOGIN</h2>
+            <form action="" id="log-in-form">
+                <label for="log-in-email">Email Address</label>
+                <br />
+
+                <input
+                    type="email"
+                    id="log-in-email"
+                    placeholder="Enter email address"
+                    required
+                />
+
+                <br />
+                <label for="log-in-password">Enter password</label>
+                <br />
+
+                <input
+                    type="password"
+                    id="log-in-password"
+                    placeholder="Enter your password"
+                    minlength="6"
+                    required
+                />
+                <br />
+                <br />
+
+                <button>
+                    Login <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div> -->
+    <div class="form-modal">
+
+        <div class="form-toggle">
+            <button id="login-toggle" onclick="toggleLogin()">log in</button>
+            <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+        </div>
+
+        <div id="login-form-container">
+            <form id="login-form-container__form">
+                <input id="log-in-email" type="text" placeholder="Enter email" />
+                <input id="log-in-password" type="password" placeholder="Enter password" />
+                <button type="submit" class="btn login">login</button>
+                <p><a href="javascript:void(0)">Forgotten account</a></p>
+                <!-- <hr /> -->
+
+            </form>
+        </div>
+
+        <div id="signup-form-container">
+            <form id="signup-form-container__form">
+                <input id="sign-up-email" type="email" placeholder="Enter your email" />
+                <input id="sign-up-username" type="text" placeholder="Choose username" />
+                <input id="sign-up-password" type="password" placeholder="Create password" />
+                <button type="submit" class="btn signup">create account</button>
+                <p>Clicking <strong>create account</strong> means that you are agree to our <a
+                        href="javascript:void(0)">terms of services</a>.</p>
+                <!-- <hr />
+                <button type="button" class="btn -box-sd-effect"> <i class="fa fa-google fa-lg" aria-hidden="true"></i>
+                    sign up with google</button>
+                <button type="button" class="btn -box-sd-effect"> <i class="fa fa-linkedin fa-lg"
+                        aria-hidden="true"></i> sign up with linkedin</button>
+                <button type="button" class="btn -box-sd-effect"> <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
+                    sign up with microsoft</button> -->
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+    <!-- <script src="../app/index.js"></script> -->
+<script src="/index.bundle.js"></script><script src="/auth.bundle.js"></script></body>
+
+</html>

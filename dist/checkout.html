@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+<link href="/index.css" rel="stylesheet"></head>
+
+<body id="checkout-body">
+    <header>
+        <span onclick="window.location.href = 'index.html'"><img src="images/VINEAT_Logo.png" alt=""></span>
+
+        <nav>
+            <ul>
+                <li id="greet-wrapper"></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="auth.html" id="login">Login</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <form>
+
+            <label for="checkout-name">
+                <input id="checkout-name" type="text" placeholder="Enter your name" required>
+            </label>
+            <br>
+            <label for="checkout-address">
+                <textarea id="checkout-address" placeholder="Enter your address" required></textarea>
+            </label>
+            <br>
+
+            <label class="radio">
+                <input type="radio" name="pickup-or-delivery" value="1" checked required>
+                <span>Pickup</span>
+            </label>
+            <label class="radio">
+                <input type="radio" name="pickup-or-delivery" value="2" required>
+                <span>Delivery</span>
+            </label>
+
+
+            <button id="checkout-submit" type="submit">Submit</button>
+        </form>
+    </section>
+    <aside>
+
+
+
+    </aside>
+    <main>
+        <div id="map"></div>
+    </main>
+
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js">
+    </script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        type="text/css" />
+    <!-- <main>a
+        <div>
+            <img src="../public/images/VINEAT_LOGO2.png" alt="">
+        </div>
+    </main> -->
+    <!-- <div id="about">a</div> -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+<script src="/index.bundle.js"></script><script src="/auth.bundle.js"></script><script src="/checkout.bundle.js"></script></body>
+
+</html>

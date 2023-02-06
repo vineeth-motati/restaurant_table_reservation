@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link href="/index.css" rel="stylesheet"></head>
+
+<body id="index-body">
+    <!-- <div id="modal-dialog" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+                <h1>Sorry...</h1>
+                Due to the current health crisis related to COVID-19, we
+                layed off few our services. Sorry for the inconcenience.
+            </p>
+        </div>
+    </div> -->
+    <header>
+        <span onclick="window.location.href = 'index.html'"><img src="images/VINEAT_Logo.png" alt=""></span>
+        <nav>
+            <ul>
+                <li id="greet-wrapper"></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="auth.html" id="login">Login</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>A place where you <span>MEET</span>, <span>GREET</span> and <span>EAT</span> </p>
+        <div><button onclick="smoothScroll(document.getElementById('locate'))" class="meet">MEET</button> <br> <br>
+            <button onclick="window.location.href = 'user.html'" class="eat">EAT</button></div>
+    </main>
+    <article>
+        <div>
+            <h1>Hungry?</h1><br>
+            <button onclick="window.location = './user.html'">ORDER ONLINE</button>
+        </div>
+    </article>
+    <!-- <section class="box1"></section>
+    <div class="box1-content">asdf</div>
+    <section class="box2"></section>
+    <div class="box2-content">asdf</div>
+    <section class="box3"></section>
+    <div class="box3-content">asdf</div>
+    <section class="box4"></section>
+    <div class="box4-content">asdf</div> -->
+    <section id=locate>
+        <h1>Locate us</h1>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.178992349945!2d78.3685165144024!3d17.451145005557517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e3b687f237%3A0x2151ef183d15a72b!2sTA%20Digital%20%7C%20TechAspect%20Solutions%20Private%20Limited!5e0!3m2!1sen!2sin!4v1612000477573!5m2!1sen!2sin"
+            width="100%" height="90%" frameborder="0" style="border:0;" allowfullscreen="true" aria-hidden="false"
+            tabindex="0"></iframe>
+    </section>
+    <!-- <section class="box5">box5</section>
+        <section class="box6">box6</section>
+        <section class="box7">box7</section>
+        <section class="box8">box8</section> -->
+    <footer>
+        <p>&copy; VinEat 2021</p>
+    </footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+    <!-- <script src="../app/index.js"></script> -->
+<script src="/index.bundle.js"></script><script src="/auth.bundle.js"></script></body>
+
+</html>

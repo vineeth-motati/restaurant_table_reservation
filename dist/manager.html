@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script>
+        function reRoute() {
+            if (localStorage.getItem('loggedInUser') != '') {
+                var user = JSON.parse(localStorage.getItem('loggedInUser'));
+                if (user.email.indexOf('@vineat.com') === -1) {
+                    alert('You are not authorized');
+                    window.location = '/auth.html';
+                }
+            } else {
+                alert('You are not authorized');
+                window.location = '/auth.html';
+            }
+        }
+
+        window.onload = reRoute;
+    </script>
+<link href="/index.css" rel="stylesheet"><link href="/layout.css" rel="stylesheet"></head>
+
+<body id="manage-body">
+    <div class="container">
+        <header>
+            <span onclick="window.location.href = 'index.html'"><img src="images/VINEAT_Logo.png" alt=""></span>
+            <nav>
+                <ul>
+                    <li id="greet-wrapper"></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="auth.html" id="login">Login</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id='section' class="activate-dashboard">
+            <aside>
+                <button id="manager-dashboard" class="active">Dashboard</button>
+                <button id="edit-layout">Edit Layout</button>
+                <button id="manage-users">Manage Users</button>
+                <!-- <button id=""></button> -->
+            </aside>
+            <!-- ==================================================================== -->
+            <main id="dashboard" class="active">
+                <section class="pie-charter">
+                    <input id="dashboard__date-input" type="date">
+                    <select name="time" id="dashboard__time-input" required>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="16:00">4:00 PM</option>
+                        <option value="18:00">6:00 PM</option>
+                        <option value="20:00">8:00 PM</option>
+                    </select>
+                    <div class="pie-charter__container">
+                        <canvas id="reservation-chart" width="400" height="400"
+                            aria-label="# of Registered Tables"></canvas>
+                    </div>
+                </section>
+                <section class="bar-charter">
+                    <div class="bar-charter__container">
+                        <canvas id="reservarion-bar-chart" width="auto" height="auto"
+                            aria-label="# of Registered Tables"></canvas>
+                    </div>
+                </section>
+                <div id="all-users">
+                    <table id="all-users__table">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Reservations</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </main>
+            <main id="layout" class="inactive">
+                <div class="form-group admin-menu">
+                    <div class="row">
+                        <div class="width-wrapper">
+                            <label>Width (px)</label>
+                            <input type="number" id="width" class="form-control" value="302" />
+                        </div>
+                        <!-- <br> -->
+
+                        <div class="height-wrapper">
+                            <label>Height (px)</label>
+                            <input type="number" id="height" class="form-control" value="812" />
+                        </div>
+
+                    </div>
+                    <div class="btn-group">
+                        <button id="save" class="save"> <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                        <button class="rectangle">+ <i class="fa fa-square-o" aria-hidden="true"></i> Table</button>
+                        <button class="circle">+ <i class="fa fa-circle-o" aria-hidden="true"></i>
+                            Table</button>
+                        <!-- <button class="triangle">+ <i class="fa fa-triangle-o" aria-hidden="true"></i> Table</button> -->
+                        <button class="chair">+ Chair</button>
+                        <button class="bar">+ Bar</button>
+                        <button class="wall">+ Wall</button>
+                        <button class="remove"><i class="fa fa-trash" aria-hidden="true"></i>
+                            Remove</button>
+                        <!-- <button class="btn btn-warning customer-mode">Customer mode</button> -->
+                    </div>
+                </div>
+
+                <!-- <div class="form-group customer-menu" style="display: none;">
+                    <div class="btn-group">
+                        <button class="btn btn-success submit">Submit reservation</button>
+                        <button class="btn btn-warning admin-mode">Admin mode</button>
+                    </div>
+                    <br />
+                    <br />
+                    <div id="slider"></div>
+                    <div id="slider-value"></div>
+                </div> -->
+
+                <canvas id="canvas" width="800" height="500"></canvas>
+            </main>
+            <main id="users" class="inactive">
+
+                <form id="users__make-admin">
+
+                    <input type="email" /><br />
+                    <button id="make-admin" type="submit">Make this user admin</button>
+                </form>
+                <!-- <div id="all-users">
+                    <table id="all-users__table">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Reservation Details</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div> -->
+            </main>
+        </section>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+    <!-- <script src="../app/index.js"></script> -->
+<script src="/index.bundle.js"></script><script src="/auth.bundle.js"></script><script src="/layout.bundle.js"></script><script src="/manage.bundle.js"></script></body>
+
+</html>
