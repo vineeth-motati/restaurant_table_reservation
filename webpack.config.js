@@ -11,7 +11,6 @@ module.exports = {
         layout: __dirname + '/src/app/layout.js',
         manage: __dirname + '/src/app/manage.js',
         user: __dirname + '/src/app/user.js',
-        checkout: __dirname + '/src/app/checkout.js',
     },
     output: {
         path: __dirname + '/dist',
@@ -25,11 +24,6 @@ module.exports = {
             filename: 'index.html',
             template: __dirname + '/src/public/index.html',
             chunks: ['auth', 'index'],
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'checkout.html',
-            template: __dirname + '/src/public/checkout.html',
-            chunks: ['auth', 'index', 'checkout'],
         }),
         new HtmlWebpackPlugin({
             filename: 'about.html',
@@ -54,7 +48,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'user.html',
             template: __dirname + '/src/public/user.html',
-            chunks: ['auth', 'user', 'layout', 'index'],
+            chunks: ['auth', 'layout', 'index', 'user'],
         }),
     ],
 

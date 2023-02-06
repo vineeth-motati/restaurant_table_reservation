@@ -1,0 +1,95 @@
+@import "app";
+#menu-body {
+    @extend #index-body;
+    header {
+        // width: 100%;
+        // background-color: transparent !important;
+        color: white;
+        // font-size: 150%;
+        span {
+            font-size: 200%;
+            font-family: "Cookie Regular";
+            font-weight: 900;
+        }
+        nav {
+            ul {
+                li {
+                    margin-right: 20px;
+                    a {
+                        display: inline-block;
+                        margin: 0;
+                        font-weight: 1000;
+                    }
+                }
+            }
+        }
+    }
+    background-image: url("../public/images/login_background3.jpeg");
+    background-position: center;
+    // background-size: 97%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.2fr 8fr 0.3fr;
+    grid-template-areas:
+        "header header"
+        "main main"
+        "footer footer";
+    main {
+        // grid-area: main;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 9.8fr;
+        grid-template-areas: "left-menu right-menu";
+        background-image: none;
+        margin: 2%;
+        margin-left: 7%;
+        margin-right: 7%;
+        border-radius: 8px;
+        background-color: rgb(235, 235, 235);
+        #left-menu {
+            text-align: center;
+            grid-area: left-menu;
+            label {
+                // font-weight: bo;
+                font-size: 120%;
+            }
+        }
+        .hr {
+            display: none;
+        }
+        #right-menu {
+            @extend #left-menu;
+            grid-area: right-menu;
+        }
+    }
+}
+$medium: 768px;
+
+@media screen and (max-width: $medium) {
+    #menu-body {
+        // height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 9.8fr 0.3fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 9.9fr 0.1fr 9.9fr;
+            grid-template-areas:
+                "left-menu"
+                "hr"
+                "right-menu";
+        }
+        hr {
+            color: rgb(51, 51, 51);
+        }
+        // column-gap: unset;
+    }
+}

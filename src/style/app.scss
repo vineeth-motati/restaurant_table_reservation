@@ -1,0 +1,326 @@
+@font-face {
+    src: url("../public/fonts/Cookie-Regular.ttf");
+    font-family: "Cookie Regular";
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin Header {
+    header {
+        grid-area: header;
+        background-color: transparent;
+        font-size: 150%;
+        padding: 1%;
+        span {
+            cursor: pointer;
+            font-size: 200%;
+            font-family: "Cookie Regular";
+            font-weight: 900;
+        }
+        nav {
+            float: right;
+            position: relative;
+            ul {
+                margin: 0;
+                li {
+                    display: inline;
+                    a {
+                        text-decoration: none;
+                        color: inherit;
+                        display: inline-block;
+                        // margin-right: 50px;
+                        font-weight: 1000;
+                        // box-shadow: 0 0 20px rgb(0, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+}
+@keyframes appear {
+    0% {
+        width: 60%;
+        padding: 30px;
+        margin: 13% auto;
+
+        opacity: 0;
+    }
+    100% {
+        width: 40%;
+        padding: 20px;
+        margin: 15% auto;
+
+        opacity: 1;
+    }
+}
+#index-body {
+    // height: 95vh;
+    max-width: 100vw !important;
+    .modal {
+        // transition: all 0.5 ease-in-out;
+        display: block;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        .modal-content {
+            animation: appear 1s;
+            background-color: #fefefe;
+            border-radius: 8px;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 40%;
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                &:hover,
+                &:focus {
+                    color: black;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    // background-color: #333;
+    // background-image: url("../public/images/title_logo.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background-size: cover; */
+    background-size: 90% 70%;
+    background-position: center;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.2fr 5fr 4fr 4fr auto 0.3fr;
+    grid-template-areas:
+        "header header header header"
+        "main main main main"
+        "box1 box1-content box2 box2-content"
+        "box3 box3-content box4 box4-content"
+        "locate locate locate locate"
+        "footer footer footer footer";
+    gap: 0rem;
+    background-image: none;
+
+    @include Header();
+    header {
+        nav {
+            ul {
+                li {
+                    margin-right: 20px;
+                    a {
+                        display: inline-block;
+                        margin: 0;
+                        font-weight: 1000;
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        padding-left: 3%;
+        color: rgb(209, 209, 209);
+        grid-area: footer;
+        background-color: rgb(0, 0, 0);
+        // grid-column: 1/5;
+    }
+
+    main {
+        grid-area: main;
+        // background-color: coral;
+        background-image: url("../public/images/main_bg7.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "para buttons";
+        p {
+            color: white;
+            align-self: end;
+            justify-self: center;
+            text-align: justify;
+            padding: 2%;
+            grid-area: para;
+            font-family: cursive;
+            font-size: 300%;
+            font-weight: bolder;
+            span {
+                color: #3ef2ff;
+            }
+        }
+        div {
+            text-align: center;
+            color: white;
+            padding: 20%;
+            // padding-left: 25%;
+            // display: grid;
+            // grid-template-columns: 1fr;
+            // grid-template-rows: 4.5fr 1fr 4.5fr;
+            // grid-template-areas: "meet" "." "eat";
+            // align-content: center;
+            // grid-area: buttons;
+            // justify-self: baseline;
+            // align-self: center;
+            .meet {
+                align-self: end;
+                grid-area: meet;
+            }
+            button {
+                background-color: #3ef2ff;
+                outline: none;
+                border-radius: 8px;
+                // padding: 30%;
+                max-width: 100%;
+                width: 140px;
+                max-height: 100%;
+                height: 50px !important;
+                font-size: 20px;
+            }
+            .eat {
+                grid-area: eat;
+            }
+        }
+    }
+
+    .box1 {
+        // justify-self: center;
+        border-radius: 8px;
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+        grid-area: box1;
+        width: 200px;
+        height: 200px;
+        // background-color: aqua;
+
+        background-image: url("../public/images/bg1.jpg");
+        background-position: center;
+        // background-size: 50%;
+        background-repeat: no-repeat;
+    }
+    .box1-content,
+    .box2-content,
+    .box3-content,
+    .box4-content {
+        text-align: justify;
+        padding: 3% !important;
+        align-self: center;
+    }
+    .box2 {
+        // align-self: end !important;
+        // justify-self: end;
+        background-image: url("../public/images/bg2.jpg");
+        grid-area: box2;
+        @extend .box1;
+    }
+    .box3 {
+        grid-area: box3;
+        background-image: url("../public/images/bg3.jpeg");
+        @extend .box1;
+    }
+    .box4 {
+        // justify-self: end;
+        background-image: url("../public/images/bg4.jpg");
+        background-size: auto;
+        grid-area: box4;
+        @extend .box1;
+    }
+    #locate {
+        h2 {
+            padding-left: 3%;
+        }
+        grid-area: locate;
+    }
+}
+
+$medium: 768px;
+
+@media screen and (max-width: $medium) {
+    #index-body {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.02fr 0.4fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.02fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "box1"
+            "box1-content"
+            "box2"
+            "box2-content"
+            "box3"
+            "box3-content"
+            "box4"
+            "box4-content"
+            "locate"
+            "footer";
+        grid-row-gap: 5px;
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 0.05fr 0.03fr;
+            grid-template-areas: "para" "buttons";
+            p {
+                color: white;
+                align-self: end;
+                justify-self: center;
+                text-align: justify;
+                padding: 2%;
+                grid-area: para;
+                font-family: cursive;
+                font-size: 300%;
+                font-weight: bolder;
+                span {
+                    color: #3ef2ff;
+                }
+            }
+            div {
+                text-align: center;
+                color: white;
+                // padding: 20%;
+                // padding-left: 25%;
+                display: grid;
+                grid-template-columns: 0.5fr 0.5fr;
+                grid-template-rows: 0.3fr;
+                grid-template-areas: "meet eat";
+                align-content: center;
+                grid-area: buttons;
+                justify-self: unset;
+                align-self: center;
+                button {
+                    background-color: #3ef2ff;
+                    outline: none;
+                    border-radius: 8px;
+                    padding: 0;
+                    width: 100%;
+                    height: 40px;
+                    font-size: 20px;
+                }
+                .meet {
+                    align-self: end;
+                    grid-area: meet;
+                }
+                .eat {
+                    grid-area: eat;
+                }
+            }
+        }
+        // column-gap: unset;
+    }
+}

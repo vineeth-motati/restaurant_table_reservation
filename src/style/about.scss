@@ -1,0 +1,86 @@
+@import "app";
+
+#about-body {
+    @extend #index-body;
+    background-color: rgb(27, 27, 27);
+    @include Header();
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.2fr 4fr 0.2fr 4fr 0.2fr 4fr 0.2fr 0.3fr;
+    grid-template-areas:
+        "header header header"
+        "person1 aboutperson1 aboutperson1"
+        ". . ."
+        "aboutperson2 aboutperson2 person2"
+        ". . ."
+        "person3 aboutperson3 aboutperson3"
+        ". . ."
+        "footer footer footer";
+    header {
+        background-color: rgb(27, 27, 27);
+        color: white;
+    }
+    .person1 {
+        border-radius: 8px;
+        grid-area: person1;
+        // background-color: tomato;
+        background-image: url("../public/images/person1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .about-person1 {
+        color: white;
+        text-align: justify;
+        align-self: center;
+        padding: 5%;
+        background-color: rgb(27, 27, 27);
+        grid-area: aboutperson1;
+    }
+    .person2 {
+        @extend .person1;
+        background-image: url("../public/images/person2.jpg");
+        grid-area: person2;
+    }
+    .about-person2 {
+        @extend .about-person1;
+        grid-area: aboutperson2;
+    }
+    .person3 {
+        grid-area: person3;
+        @extend .person1;
+        background-image: url("../public/images/person3.jpg");
+    }
+    .about-person3 {
+        grid-area: aboutperson3;
+        @extend .about-person1;
+    }
+    footer {
+        padding-left: 3%;
+        color: rgb(209, 209, 209);
+        grid-area: footer;
+        background-color: rgb(15, 15, 15);
+        // background-color: rgb(0, 0, 0);
+        // grid-column: 1/5;
+    }
+}
+$medium: 768px;
+
+@media screen and (max-width: $medium) {
+    #about-body {
+        // height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 4fr 4fr 4fr 4fr 4fr 4fr 0.3fr;
+        grid-template-areas:
+            "header"
+            "person1"
+            "aboutperson1"
+            "person2"
+            "aboutperson2"
+            "person3"
+            "aboutperson3"
+            "footer";
+        // column-gap: unset;
+    }
+}

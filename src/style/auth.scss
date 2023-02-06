@@ -1,0 +1,125 @@
+@import "app";
+#auth-body {
+    @extend #index-body;
+    header {
+        width: 100%;
+        background-color: transparent !important;
+        color: white;
+        font-size: 150%;
+        span {
+            font-size: 45px;
+            font-family: "Cookie Regular";
+            font-weight: 900;
+            background-color: transparent !important;
+        }
+        nav {
+            ul {
+                li {
+                    margin-right: 20px;
+                    a {
+                        display: inline-block;
+                        margin: 0;
+                        font-weight: 1000;
+                        box-shadow: 0 0 20px rgb(0, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+    height: 100%;
+    width: 100%;
+
+    background-image: url("../public/images/login_background3.jpeg");
+    background-position: center;
+    // background-size: 97%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.2fr 1fr 4fr;
+    grid-template-areas:
+        "header header"
+        ". ."
+        "signup login";
+    // gap: 2rem;
+    grid-column-gap: 50px;
+    @include Header();
+    #sign-up-container {
+        transition: all 0.3s ease-in-out !important;
+        display: block;
+        text-align: center;
+        padding: 2% 20% 5% 20%;
+        margin: 1%;
+        // justify-items: center;
+        justify-self: center;
+        align-self: stretch;
+        grid-area: signup;
+        background-color: transparent;
+        // background-color: rgba(82, 82, 82, 0.432);
+        background-color: rgba(255, 255, 255, 0.781);
+        color: black;
+        backdrop-filter: blur(20px);
+        // color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgb(0, 0, 0);
+        &:hover {
+            box-shadow: 0 0 20px rgb(255, 255, 255);
+        }
+
+        label {
+            font-size: 70%;
+        }
+
+        input {
+            transition: all 0.3s ease-in-out !important;
+
+            // width: 100%;
+            outline: none;
+            border-radius: 10px;
+            padding: 10px;
+            // box-shadow: 0 0 20px rgb(24, 17, 17);
+            &:focus,
+            &:hover {
+                box-shadow: 0 0 20px rgb(255, 255, 255);
+            }
+        }
+        button {
+            transition: all 0.3s ease-in-out !important;
+            box-shadow: 0 0 20px rgb(24, 17, 17);
+            border-radius: 10px;
+            outline: none;
+            width: 80px;
+            background-color: rgb(230, 230, 230);
+            padding: 7px;
+            &:focus,
+            &:hover {
+                background-color: springgreen;
+
+                box-shadow: 0 0 20px rgb(255, 255, 255);
+            }
+        }
+    }
+    #log-in-container {
+        @extend #sign-up-container;
+        grid-area: login;
+        padding-top: 6%;
+        padding-bottom: 10%;
+        // background-color: yellowgreen;
+    }
+}
+$medium: 768px;
+
+@media screen and (max-width: $medium) {
+    #auth-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 4fr 4fr;
+        grid-template-areas:
+            "header"
+            "signup"
+            "login";
+
+        width: 95%;
+    }
+}
